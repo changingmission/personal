@@ -1,0 +1,23 @@
+﻿.logo{
+  max-width: 150px;
+}
+*{
+  font-family: 'Quicksand', sans-serif;
+}
+.main-img{
+  background-color: aliceblue;
+}
+.intro{
+  margin-top: 50px;
+}
+.intro img{
+  width: 250px;
+}
+.intro strong{
+  font-weight: 600;
+  color: #3366ff;
+}
+.blog{
+  margin-top: 50px;
+  background-color: aliceblue;
+}
