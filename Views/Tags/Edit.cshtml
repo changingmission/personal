@@ -1,0 +1,7 @@
+@model Tag
+<div class="container">
+<form asp-controller="Tags" asp-action="Edit" method="post">
+    <input class="form-control" placeholder="Title" asp-for="Title">
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+</div>
