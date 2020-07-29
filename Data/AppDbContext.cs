@@ -32,6 +32,7 @@ namespace Personal.Data
         .Property(p=>p.Title).IsRequired().HasMaxLength(255);
       mb.Entity<Tag>()
         .Property(p=>p.Slug).IsRequired();
+      // mb.Entity<Tag>().HasIndex(t=>t.Slug).IsUnique();
       mb.Entity<Category>()
         .Property(p=>p.Title).IsRequired().HasMaxLength(255);
       mb.Entity<Category>()
