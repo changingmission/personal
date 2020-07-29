@@ -1,0 +1,17 @@
+@model IEnumerable<Category>
+<div class="container">
+    <h1>Categories</h1>
+    <hr>
+    <partial name="_MessageSummary" />
+    <a class="btn btn-primary" asp-action="Create" asp-controller="Categories" >Add</a>
+    <ul class="list-group">
+        @foreach (var category in Model)
+        {
+            <li class="list-group-item">@category.Title 
+                <a asp-route-id="@category.Id" asp-action="Edit" asp-controller="Categories" >Edit</a>
+                || 
+                <a asp-route-id="@category.Id" asp-action="Delete" asp-controller="Categories">Del</a>
+            </li>
+        }
+    </ul>
+</div>

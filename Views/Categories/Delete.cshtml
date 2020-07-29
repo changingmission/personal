@@ -1,0 +1,9 @@
+@model Category
+<div class="container">
+    You are permanently deleting @Model.Title ?
+    <form asp-controller="Categories" asp-action="DeleteConfirm" method="post">
+        <input name="Id" type="hidden" value="@Model.Id">
+        <a asp-action="Index" asp-controller="Categories">Cancel</a>
+        <button type="submit" class="btn btn-danger">Confirm Delete</button>
+    </form>
+</div>
