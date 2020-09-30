@@ -1,4 +1,7 @@
 @model Post
+@{
+    var categories = ViewData["categories"] as IEnumerable<Category>;
+}
 <div class="container">
 <form asp-controller="Posts" asp-action="Create" method="post">
     <div class="mb-3">
@@ -8,6 +11,10 @@
     <div class="mb-3">
         <label asp-for="Content" class="form-label"></label>
         <textarea class="form-control" asp-for="Content"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Categories</label>
+        <select multiple name="SelectedCategoryIds" asp-items="@(new SelectList(categories,"Id","Title"))" class="form-control"></select>
     </div>
     <div class="mb-3">
         <label asp-for="PostStatus" class="form-label"></label>

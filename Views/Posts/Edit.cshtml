@@ -1,4 +1,8 @@
 @model Post
+@{
+    var categories = ViewData["categories"] as IEnumerable<Category>;
+        var selected=Model.PostCategories.Select(pc=>pc.CategoryId).ToList();
+}
 <div class="container">
 <form asp-controller="Posts" asp-action="Edit" method="post">
     <div class="mb-3">
@@ -10,9 +14,23 @@
         <textarea class="form-control" asp-for="Content"></textarea>
     </div>
     <div class="mb-3">
+        <label class="form-label">Categories</label>
+        <select multiple name="SelectedCategoryIds" asp-items="@(new MultiSelectList(categories,"Id","Title",selected))" class="s2 form-control"></select>
+    </div>
+    <div class="mb-3">
         <label asp-for="PostStatus" class="form-label"></label>
         <select asp-for="PostStatus" asp-items="Html.GetEnumSelectList<PostStatus>()" class="form-control"></select>
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
+    <button type="submit" class="btn btn-primary">Update</button>
 </form>
 </div>
+@section Scripts{
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.slim.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.s2').select2();
+        });
+    </script>
+}
