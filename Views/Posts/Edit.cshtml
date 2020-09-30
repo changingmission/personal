@@ -1,0 +1,18 @@
+@model Post
+<div class="container">
+<form asp-controller="Posts" asp-action="Edit" method="post">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input class="form-control" placeholder="Title" asp-for="Title">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label"></label>
+        <textarea class="form-control" asp-for="Content"></textarea>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PostStatus" class="form-label"></label>
+        <select asp-for="PostStatus" asp-items="Html.GetEnumSelectList<PostStatus>()" class="form-control"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+</div>

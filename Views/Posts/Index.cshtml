@@ -1,0 +1,15 @@
+@model IEnumerable<Post>
+    <div class="container">
+    <h1>Posts</h1>
+    <hr>
+    <partial name="_MessageSummary" />
+    <a class="btn btn-primary" asp-action="Create" asp-controller="Posts" >Add</a>
+    <ul class="list-group">
+        @foreach (var post in Model)
+        {
+            <li class="list-group-item">@post.Title <small>@post.PostStatus</small>
+                <a asp-route-id="@post.Id" asp-action="Edit" asp-controller="Posts" >Edit</a>
+            </li>
+        }
+    </ul>
+</div>
